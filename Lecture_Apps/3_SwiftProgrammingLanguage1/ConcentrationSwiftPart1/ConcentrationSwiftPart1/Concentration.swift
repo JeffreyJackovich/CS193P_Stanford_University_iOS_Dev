@@ -10,10 +10,13 @@ import Foundation
 
 class Conentration {
     
+    // Fundamental's of Concentration:
+    // 1. array's of cards
     var cards = [Card]()
     
     var indexOfOneAndOnlyFaceUpCard: Int?
     
+    // 2. ability to choose a card
     func chooseCard(at index: Int) {
         // ignore all matched cards
         if !cards[index].isMatched {
@@ -26,8 +29,8 @@ class Conentration {
                 }
                 cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = nil
-                
             } else {
+                
                 //cards no cards or two cards are faceup
                 for flipDownIndex in cards.indices {
                     cards[flipDownIndex].isFaceUp = false
@@ -36,14 +39,24 @@ class Conentration {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+    }
+    
+    //3. need to know the number of pairs of cards to "add" to Concentration
+    init(totalNumberOfCards: Int) {
+        for _ in 1...totalNumberOfCards {
+            let card = Card()
+//            print("printing card: \(card)")
+            cards.append(card)
+//            cards.append(card)
+        }
+        // TODO: Shuffle the cards
+//        print("printing cards.count: \(cards.count)")
+        for _ in 1...(cards.count) {
+            let rand = Int(arc4random_uniform(UInt32(cards.count)))
+            cards.append(cards[rand])
+        }
         
     }
     
-    init(numberofPairsOfCards: Int) {
-        for _ in 1...numberofPairsOfCards {
-            let card = Card()
-            cards += [card, card]
-        }
-        // TODO: Shuffle the cards
-    }
+    
 }

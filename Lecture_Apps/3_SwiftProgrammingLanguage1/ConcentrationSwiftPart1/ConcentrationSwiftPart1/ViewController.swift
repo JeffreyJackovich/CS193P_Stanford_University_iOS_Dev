@@ -10,7 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+    //connect Controller to the Model
+//    lazy var game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+    
+    
+    lazy var game = Conentration(totalNumberOfCards: (cardButtons.count))
     
     var flipCount = 0 {
             didSet {
@@ -22,7 +26,6 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
-
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
         if let cardNumber = cardButtons.index(of: sender) {

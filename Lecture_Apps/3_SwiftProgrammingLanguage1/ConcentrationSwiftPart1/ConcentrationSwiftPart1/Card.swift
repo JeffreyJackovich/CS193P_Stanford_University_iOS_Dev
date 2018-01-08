@@ -14,6 +14,8 @@ struct Card {
     var isMatched = false 
     var identifier: Int
     
+    // Fundamental Card aspect:
+    //  - figure it's own unique identifier
     static var identifierFactory = 0
     
     static func getUniqueIdentifier() -> Int {
