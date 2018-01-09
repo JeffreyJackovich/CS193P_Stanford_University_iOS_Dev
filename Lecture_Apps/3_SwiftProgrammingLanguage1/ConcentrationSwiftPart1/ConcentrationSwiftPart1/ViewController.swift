@@ -11,11 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     
     //connect Controller to the Model
-//    lazy var game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+   lazy var game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+
+    // methods called after weired up
+    // make it optional in the interim
     
+    //implicit unwrapped optional
+//    let game = Conentration(newGame) {
+//
+//    }
     
-    lazy var game = Conentration(totalNumberOfCards: (cardButtons.count))
-    
+   
     var flipCount = 0 {
             didSet {
                 flipCountLabel.text = "Flips: \(flipCount)"
@@ -25,6 +31,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var flipCountLabel: UILabel!
     
     @IBOutlet var cardButtons: [UIButton]!
+    
+    
+    @IBAction func startNewGameButton(_ sender: UIButton) {
+//        let game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+    }
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1

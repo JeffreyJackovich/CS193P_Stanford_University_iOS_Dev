@@ -42,12 +42,12 @@ class Conentration {
     }
     
     //3. need to know the number of pairs of cards to "add" to Concentration
-    init(totalNumberOfCards: Int) {
-        for _ in 1...totalNumberOfCards {
+    init(numberofPairsOfCards: Int) {
+        for _ in 1...numberofPairsOfCards {
             let card = Card()
 //            print("printing card: \(card)")
             cards.append(card)
-//            cards.append(card)
+            cards.append(card)
         }
         // TODO: Shuffle the cards
 //        print("printing cards.count: \(cards.count)")
