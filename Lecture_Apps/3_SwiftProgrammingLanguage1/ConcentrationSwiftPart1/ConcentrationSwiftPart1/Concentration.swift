@@ -14,7 +14,29 @@ class Conentration {
     // 1. array's of cards
     var cards = [Card]()
     
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    //computed property - get/set example i.e. "
+    var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFaceUp  {
+                    if foundIndex == nil {
+                        // if found first card
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set {
+            // check all cards to verify if faceUp. turn all cards faceDown except the card at newIndex
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
     // 2. ability to choose a card
     func chooseCard(at index: Int) {
@@ -28,22 +50,16 @@ class Conentration {
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
+//                indexOfOneAndOnlyFaceUpCard = nil
             } else {
-                
-                //cards no cards or two cards are faceup
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
     
     //3. need to know the number of pairs of cards to "add" to Concentration
-    init(numberofPairsOfCards: Int) {
-        for _ in 1...numberofPairsOfCards {
+    init(numberOfPairsOfCards: Int) {
+        for _ in 1...numberOfPairsOfCards {
             let card = Card()
 //            print("printing card: \(card)")
             cards.append(card)

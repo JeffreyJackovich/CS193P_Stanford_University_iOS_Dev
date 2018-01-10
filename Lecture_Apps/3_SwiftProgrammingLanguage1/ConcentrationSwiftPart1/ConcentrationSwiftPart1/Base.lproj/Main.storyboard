@@ -135,15 +135,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYe-Tc-iX4">
-                                <rect key="frame" x="91" y="597" width="193" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="start New Game"/>
-                                <connections>
-                                    <action selector="startNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z1K-3R-NmX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-5u-VWQ">
                                 <rect key="frame" x="140.66666666666666" y="742" width="93.666666666666657" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -151,10 +142,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3wp-5u-VWQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JeK-hV-Vns"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3wp-5u-VWQ" secondAttribute="bottom" id="RpQ-l6-2aI"/>
+                            <constraint firstItem="3wp-5u-VWQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="r7E-bx-uyD" secondAttribute="bottom" constant="8" symbolic="YES" id="TGO-lZ-fTv"/>
                             <constraint firstItem="r7E-bx-uyD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eCu-hz-Gwl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r7E-bx-uyD" secondAttribute="trailing" constant="16" id="h7j-0L-vK1"/>
                             <constraint firstItem="r7E-bx-uyD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oqN-YZ-fLE"/>

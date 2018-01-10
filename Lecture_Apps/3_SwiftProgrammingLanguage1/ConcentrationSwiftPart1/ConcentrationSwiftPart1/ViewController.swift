@@ -11,7 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     //connect Controller to the Model
-   lazy var game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+   lazy var game = Conentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    
+    //computed property - read only example i.e. "How many cards do we have?"
+    var numberOfPairsOfCards: Int {
+        get {
+            return (cardButtons.count + 1) / 2
+        }
+    }
 
     // methods called after weired up
     // make it optional in the interim
