@@ -12,23 +12,15 @@ class ViewController: UIViewController {
     
     //connect Controller to the Model
    private lazy var game = Conentration(numberOfPairsOfCards: numberOfPairsOfCards)
+//    var game: Conentration!
     
-    //computed property - read only example i.e. "How many cards do we have?"
+    //computed property - read only
     var numberOfPairsOfCards: Int {
         get {
             return (cardButtons.count + 1) / 2
         }
     }
 
-    // methods called after weired up
-    // make it optional in the interim
-    
-    //implicit unwrapped optional
-//    let game = Conentration(newGame) {
-//
-//    }
-    
-   
    private(set) var flipCount = 0 {
             didSet {
                 flipCountLabel.text = "Flips: \(flipCount)"
@@ -41,7 +33,11 @@ class ViewController: UIViewController {
     
     
     @IBAction private func startNewGameButton(_ sender: UIButton) {
-//        let game = Conentration(numberofPairsOfCards: (cardButtons.count + 1) / 2)
+           var game = Conentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    }
+    
+    func newGame(){
+        
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -74,11 +70,20 @@ class ViewController: UIViewController {
     
     private func emoji(for card: Card) -> String {
         if emojiDictionary[card.identifier] == nil, emojiChoices.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emojiDictionary[card.identifier] = emojiChoices.remove(at: randomIndex)
+            emojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
         return emojiDictionary[card.identifier] ?? "?"
     }
-    
 }
 
+extension Int {
+    var arc4random: Int {
+        if self > 0 {
+            return Int(arc4random_uniform(UInt32(self)))
+        } else if self < 0 {
+            return -Int(arc4random_uniform(UInt32(abs(self))))
+        } else {
+            return 0
+        }
+    }
+}

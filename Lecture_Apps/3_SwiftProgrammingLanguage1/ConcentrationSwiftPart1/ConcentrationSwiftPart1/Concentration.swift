@@ -8,13 +8,13 @@
 
 import Foundation
 
+//
 class Conentration {
     
-    // Fundamental's of Concentration:
-    // 1. array's of cards
+    // Instantiates 'cards' as an array of type Card.
     private(set) var cards = [Card]()
     
-    //computed property - get/set example i.e. "
+    // Computes index of only faceUp card.
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             var foundIndex: Int?
@@ -31,7 +31,8 @@ class Conentration {
             return foundIndex
         }
         set {
-            // check all cards to verify if faceUp. turn all cards faceDown except the card at newIndex
+            // Checks cards if faceUp.
+            // Turn all faceDown except the card at newIndex
             for index in cards.indices {
                 cards[index].isFaceUp = (index == newValue)
             }
@@ -58,24 +59,28 @@ class Conentration {
         }
     }
     
-    //3. need to know the number of pairs of cards to "add" to Concentration
+    // 
     init(numberOfPairsOfCards: Int) {
         //assertion example
         assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): you must have at least one pair of cards")
-        for _ in 1...numberOfPairsOfCards {
+        for index in 1...numberOfPairsOfCards {
             let card = Card()
-//            print("printing card: \(card)")
+            print("printing card: \(card) at index: \(index)")
             cards.append(card)
             cards.append(card)
+            
         }
+        print("printing cards: \(cards)")
         // TODO: Shuffle the cards
 //        print("printing cards.count: \(cards.count)")
         for _ in 1...(cards.count) {
             let rand = Int(arc4random_uniform(UInt32(cards.count)))
             cards.append(cards[rand])
         }
-        
     }
     
+    func newGame() {
+        var cards = [Card]()
+    }
     
 }

@@ -10,16 +10,17 @@ import Foundation
 
 struct Card {
     
+    //
     var isFaceUp = false
     var isMatched = false 
     var identifier: Int
     
-    // Fundamental Card aspect:
-    //  - figure it's own unique identifier
     private static var identifierFactory = 0
     
+    // Returns an 'Int'
     private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
+        print("identifierFactory: \(identifierFactory)")
         return identifierFactory
     }
     
