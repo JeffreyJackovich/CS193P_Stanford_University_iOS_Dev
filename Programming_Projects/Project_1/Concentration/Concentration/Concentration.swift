@@ -12,8 +12,24 @@ class Concentration {
     
     var cards = [Card]()
     
-    func chooseCard() {
+    var indexOfOneAndOnlyFaceUpCard = 0
+    
+    func chooseCard(at index: Int) {
         
+        var selectedCard = cards[index]
+        print(selectedCard)
+        selectedCard.isFaceup = true
+        //how to set the selected card to faceUp? only that cards faceUp to true
+       
+        
+    }
+    
+    init(numberOfPairsOfCards: Int) {
+        for _ in 0...numberOfPairsOfCards {
+            let card = Card()
+            cards.append(card)
+            cards.append(card)
+        }
     }
     
     

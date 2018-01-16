@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-//    let numberOfPairsOfCards = cardButtons.count
-    
-    let game = Concentration( )
+    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1 ) / 2)
     
     var flipCount = 0 {
         didSet {
@@ -26,14 +24,25 @@ class ViewController: UIViewController {
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
-        // unwrapping an optional
         if let cardNumber = cardButtons.index(of: sender) {
-            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            game.chooseCard(at: cardNumber)
+            updateViewFromModel()
         } else {
             print("chosen card not in cardButtons")
         }
     }
-    var emojiChoices:Array<String> = ["👻", "🎃", "👻", "🎃"]
+    var emojiChoices:Array<String> = ["👻", "🎃", "🐲", "🚀", "🍔", "🥩"]
+    
+    func updateViewFromModel() {
+        
+        for index in cardButtons.indices {
+            print(cardButtons[index])
+        }
+    }
+    
+    func emoji() {
+        
+    }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
         // flip down

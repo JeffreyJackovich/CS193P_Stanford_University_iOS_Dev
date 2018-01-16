@@ -15,12 +15,15 @@ struct Card {
     var isMatched = false
     var identifier: Int?
     
-    var uniqueCardIdentifier = 0
+    static var identifierFactory = 0
     
-    func cardIdentifierFactory() {
-//        self.uniqueCardIdentifier += 1
-        
+    static func getUniqueIdentifier() -> Int {
+       identifierFactory += 1
+        return identifierFactory
     }
     
+    init() {
+        self.identifier = Card.getUniqueIdentifier()
+    }
     
 }
